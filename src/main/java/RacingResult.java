@@ -1,11 +1,8 @@
-/**
- * @author sj.kim
- * @project wata backend
- */
-public class RacingResult {
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-	int maxCount;
-	String [] wonList;
+public class RacingResult {
 
 	public static void interimCheck(Cars cars) {
 		System.out.println();
@@ -24,7 +21,19 @@ public class RacingResult {
 		return statusBar;
 	}
 
-	private static void showWinners(Cars cars) {
+	public static void showWinners(Cars cars) {
+		cars.getCars().sort(Comparator.reverseOrder());
+		Car topStatus = cars.getCars().get(0);
+		List<String> winners = new ArrayList<>();
 
+		for (Car c : cars.getCars()) {
+			if (c.getRacingStatus() == topStatus.getRacingStatus()) {
+				winners.add(c.getName());
+			} else {
+				break;
+			}
+		}
+
+		System.out.println(String.join(", ", winners));
 	}
 }

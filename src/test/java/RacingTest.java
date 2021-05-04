@@ -1,12 +1,9 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import java.util.Comparator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * @author sj.kim
- * @project wata backend
- */
 public class RacingTest {
 
 	@Test
@@ -68,9 +65,22 @@ public class RacingTest {
 	@DisplayName("최종_우승자_판단_메소드")
 	void 최종_우승자_판단_메소드() {
 		Cars cars = 경주용_자동차_생성("안녕,하세요,쿠쿠씨,다섯대?1");
-		int count = 4;
+		int count = 10;
 		Racing racing = new Racing(cars, count);
 		racing.play();
 
+		System.out.println("--- 시작! ---");
+		//System.out.println();
+		for(Car c : cars.getCars()) {
+			System.out.println("name: " + c.getName() + "/ count: " + c.getRacingStatus());
+		}
+
+		cars.getCars().sort(Comparator.reverseOrder());
+		System.out.println("--- 리버스! ---");
+		for(Car c : cars.getCars()) {
+			System.out.println("name: " + c.getName() + "/ count: " + c.getRacingStatus());
+		}
+
+		RacingResult.showWinners(cars);
 	}
 }

@@ -1,8 +1,4 @@
-/**
- * @author sj.kim
- * @project wata backend
- */
-public class Car {
+public class Car implements Comparable<Car> {
 
 	public static final String won = "WON";
 	private String name;
@@ -30,6 +26,14 @@ public class Car {
 		for (int i = 0; i < racingStatus; i++) {
 			System.out.println("-");
 		}
+	}
+
+	@Override
+	public int compareTo(Car car) {
+		if(this.racingStatus == car.racingStatus) {
+			return 0;
+		}
+		return this.racingStatus > car.racingStatus ? 1 : -1;
 	}
 
 }
