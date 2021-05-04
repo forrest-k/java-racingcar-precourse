@@ -4,7 +4,7 @@
  */
 public class ValidationUtils {
 
-	public boolean isValidName(String name) {
+	public static boolean isValidName(String name) {
 		if(name.length() < 1 || name.length() > 5) {
 			return false;
 		}
@@ -12,7 +12,7 @@ public class ValidationUtils {
 		return true;
 	}
 
-	public boolean isValidCount(String inputStr) {
+	public static boolean isValidCount(String inputStr) {
 		try {
 			int count = Integer.parseInt(inputStr);
 
