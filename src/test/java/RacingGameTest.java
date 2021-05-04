@@ -4,6 +4,7 @@ import domain.MoveStatus;
 import domain.NumberOfRunGames;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import service.RacingGame;
 import view.RacingResultPrint;
 import java.util.Comparator;
 

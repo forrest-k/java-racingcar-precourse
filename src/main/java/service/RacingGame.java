@@ -1,3 +1,5 @@
+package service;
+
 import domain.Car;
 import domain.Cars;
 import domain.MoveStatus;
