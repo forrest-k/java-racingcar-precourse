@@ -1,10 +1,9 @@
+package domain;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author sj.kim
- * @project wata backend
- */
+
 public class Cars {
 
 	private List<Car> carList;
@@ -12,9 +11,9 @@ public class Cars {
 	public Cars(String carsName) {
 		carList = new ArrayList<>();
 
-		String [] cars = carsName.split(",");
+		String[] cars = carsName.split(",");
 
-		for(String s : cars) {
+		for (String s : cars) {
 			addCars(s);
 		}
 	}
@@ -28,7 +27,7 @@ public class Cars {
 			throw new RuntimeException("자동차 이름 공백");
 		}
 
-		if (!ValidationUtils.isValidName(carName)) {
+		if (carName.length() < 1 || carName.length() > 5) {
 			throw new RuntimeException("유효하지 않은 이름 값");
 		}
 
@@ -39,7 +38,7 @@ public class Cars {
 		return this.carList.get(index);
 	}
 
-	List<Car> getCars() {
+	public List<Car> getCars() {
 		return this.carList;
 	}
 }
